@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name          ChatGPT-academic-prompt-helper
 // @namespace     https://github.com/ZinYY/chatgpt-academic-prompt-helper
-// @version       0.1.2
+// @version       0.1.3
 // @description   项目主页：https://github.com/ZinYY/chatgpt-academic-prompt-helper。  【ChatGPT 学术小助手】可以为你带来更好的网页版chatgpt使用体验：快速地添加快捷指令prompts。  本项目是一个油猴脚本 (Tampermonkey)，旨在便于网页版 Chatgpt 的 prompt 输入，并内置了一些常用的学术 prompt 模板。  【Usage】【打开 prompt 面板】:单击侧边栏的 “快捷指令” 按钮，或者用快捷键 `command+shift+F` (Windows 用户使用 `ctrl+shift+F`)。  【输入 prompt】: 单击想要输入的 prompt 即可。prompt 会添加在输入框之前。  【关闭 prompt 面板】: 使用快捷键 `command+shift+F`, 或是按下 `ESC` 按键即可。  【自定义 prompt】: 自行修改 `chatgpt_academic_helper.js` 文件中的内容即可。
 // @homepage      https://github.com/ZinYY/chatgpt-academic-prompt-helper
 // @author        winchesHe
@@ -132,7 +132,7 @@
     rootEle.innerHTML = "<div id=\"chatgptHelperOpen\" class=\"fixed top-1/2 right-1 z-50 p-3 rounded-md transition-colors duration-200 text-white cursor-pointer border border-white/20 bg-gray-900 hover:bg-gray-700 -translate-y-1/2\">\u5FEB<br>\u6377<br>\u6307<br>\u4EE4</div><div id=\"chatgptHelperMain\" class=\"fixed top-0 right-0 bottom-0 z-50 flex flex-col px-3 w-96 text-gray-100 bg-gray-900\" style=\"transform: translateX(100%); transition: transform 0.2s;\"><div class=\"py-4 pl-3\"><a href=\"https://github.com/ZinYY/chatgpt-academic-prompt-helper\" target=\"_blank\">ChatGPT \u5C0F\u52A9\u624B\uFF08\u5FEB\u6377\u6307\u4EE4\uFF09</a></div><ul class=\"flex flex-1 overflow-y-auto py-4 border-y border-white/20 text-sm\" style=\"flex-wrap: wrap\">".concat(SHORTCUTS.map(function (_a) {
         var label = _a[0], value = _a[1];
         return "<li class=\"mr-2 mb-2 py-1 px-3 rounded-md hover:bg-gray-700 cursor-pointer\" data-value=\"".concat(encodeURI(value), "\">").concat(label, "</li>");
-    }).join(''), "</ul><div class=\"flex items-center py-4\"><div id=\"chatgptHelperClose\" class=\"py-2 px-3 rounded-md cursor-pointer hover:bg-gray-700\">\u5173\u95ED</div><div class=\"flex-1 pr-3 text-right text-sm\"><a class=\"py-2 px-3 rounded-md hover:bg-gray-700\" href=\"https://gitee.com/Zinyy/pictures/raw/master/pic_receive.jpg\" target=\"_blank\">\u7292\u52B3\u4F5C\u8005</a></div></div></div></div>");
+    }).join(''), "</ul><div class=\"flex items-center py-4\"><div id=\"chatgptHelperClose\" class=\"py-2 px-3 rounded-md cursor-pointer hover:bg-gray-700\">\u5173\u95ED</div><div class=\"flex-1 pr-3 text-right text-sm\"><a class=\"py-2 px-3 rounded-md hover:bg-gray-700\" href=\"https://github.com/ZinYY/chatgpt-academic-prompt-helper/blob/main/figs/pic_receive.jpg?raw=true\" target=\"_blank\">\u7292\u52B3\u4F5C\u8005</a></div></div></div></div>");
     rootEle.querySelector('ul').addEventListener('click', function (event) {
         var target = event.target;
         if (target.nodeName === 'LI') {
