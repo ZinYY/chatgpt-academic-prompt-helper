@@ -4,7 +4,9 @@
 
 本项目根据 [ChatGPT 插件脚本](https://github.com/winchesHe/chatGPT-prompt-scripts) 修改，主要自用。
 
-![功能界面展示](figs/fig2.png){:width="50%"}
+![功能界面展示](figs/fig2.png)
+
+<!-- <img src=figs/fig2.png alt="功能界面展示" width="500"> -->
 
 ## Install:
 
@@ -16,7 +18,9 @@
 
 ### 打开 prompt 面板:
 
-![功能界面展示](figs/fig1.png){:width="50%"}
+![功能界面展示](figs/fig1.png)
+
+<!-- <img src=figs/fig1.png alt="快捷指令按钮位置" width="500"> -->
 
 单击侧边栏的 “快捷指令” 按钮，或者用快捷键 `command+shift+F` (Windows 用户使用 `ctrl+shift+F`)。
 
