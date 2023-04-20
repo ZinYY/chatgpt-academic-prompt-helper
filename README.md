@@ -40,4 +40,4 @@
 
 如果你觉得脚本好用，可以请作者喝一杯咖啡：
 
-![sponsor](https://gitee.com/Zinyy/pictures/raw/master/pic_receive.jpg)
+![sponsor](figs/pic_receive.jpg)
