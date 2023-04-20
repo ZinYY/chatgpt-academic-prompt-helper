@@ -10,6 +10,12 @@
 
 ## Install:
 
+### 方法 1：
+
+去 Greasy Fork 安装脚本: [Install on GreasyFork](https://greasyfork.org/zh-CN/scripts/464480-chatgpt-academic-prompt-helper)
+
+### 方法 2：
+
 将 `chatgpt_academic_helper.js` 文件下载下来，并拖入油猴脚本插件即可。
 
 或手动新建油猴脚本 并粘贴 `chatgpt_academic_helper.js` 的内容。
