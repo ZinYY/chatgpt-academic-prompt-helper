@@ -1,4 +1,4 @@
-# Chatgpt Academic Helper: ChatGPT 学术小助手
+# Chatgpt Academic Helper: ChatGPT 学术小助手 (ChatGPT Academic Prompt Helper)
 
 本项目是一个油猴脚本 (Tampermonkey)，旨在便于**网页版** Chatgpt 的 prompt 输入，并内置了一些常用的学术 prompt 模板。
 
