@@ -35,3 +35,9 @@
 ### 自定义 prompt:
 
 自行修改 `chatgpt_academic_helper.js` 文件中的内容即可。
+
+## 赞助:
+
+如果你觉得脚本好用，可以请作者喝一杯咖啡：
+
+<img src="https://gitee.com/Zinyy/pictures/raw/master/pic_receive.jpg">
