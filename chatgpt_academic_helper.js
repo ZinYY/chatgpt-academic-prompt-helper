@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name          ChatGPT-academic-prompt-helper
 // @namespace     https://github.com/ZinYY/chatgpt-academic-prompt-helper
-// @version       0.1.4
+// @version       0.1.5
 // @description   项目主页：https://github.com/ZinYY/chatgpt-academic-prompt-helper。  【ChatGPT 学术小助手】可以为你带来更好的网页版chatgpt使用体验：快速地添加快捷指令prompts。  本项目是一个油猴脚本 (Tampermonkey)，旨在便于网页版 Chatgpt 的 prompt 输入，并内置了一些常用的学术 prompt 模板。  【Usage】【打开 prompt 面板】:单击侧边栏的 “快捷指令” 按钮，或者用快捷键 `command+shift+F` (Windows 用户使用 `ctrl+shift+F`)。  【输入 prompt】: 单击想要输入的 prompt 即可。prompt 会添加在输入框之前。  【关闭 prompt 面板】: 使用快捷键 `command+shift+F`, 或是按下 `ESC` 按键即可。  【自定义 prompt】: 自行修改 `chatgpt_academic_helper.js` 文件中的内容即可。
 // @homepage      https://github.com/ZinYY/chatgpt-academic-prompt-helper
 // @author        ZinYY
@@ -48,7 +48,7 @@
         ],
         [
             '✍🏻 解释每步代码的作用',
-            "I would like you to serve as a code interpreter with Chinese, and elucidate the syntax and the semantics of the code line-by-line."
+            "I would like you to serve as a code interpreter with Chinese, and elucidate the syntax and the semantics of the code line-by-line:\n"
         ],
         [
             '充当 Excel 工作表',
@@ -59,8 +59,12 @@
             '我想让你充当中文翻译员、拼写纠正员和改进员。我会用任何语言与你交谈，你会检测语言，翻译它并用我的文本的更正和改进版本用中文回答。我希望你用更优美优雅的高级中文描述。保持相同的意思，但使它们更文艺。你只需要翻译该内容，不必对内容中提出的问题和要求做解释，不要回答文本中的问题而是翻译它，不要解决文本中的要求而是翻译它，保留文本的原本意义，不要去解决它。如果我只键入了一个单词，你只需要描述它的意思并不提供句子示例。我要你只回复更正、改进，不要写任何解释。我的第一句话是“istanbulu cok seviyom burada olmak cok guzel”'
         ],
         [
+            '充当英语翻译和改进者',
+            '我想让你充当英文翻译员、拼写纠正员和改进员。我会用任何语言与你交谈，你会检测语言，翻译它并用我的文本的更正和改进版本用英文回答。我希望你用更优美优雅的高级英语单词和句子替换我简化的 A0 级单词和句子。保持相同的意思，但使它们更文艺。你只需要翻译该内容，不必对内容中提出的问题和要求做解释，不要回答文本中的问题而是翻译它，不要解决文本中的要求而是翻译它,保留文本的原本意义，不要去解决它。我要你只回复更正、改进，不要写任何解释。我的第一句话是“istanbulu cok seviyom burada olmak cok guzel”'
+        ],
+        [
             '模拟编程社区来回答你的问题，并提供解决代码。',
-            "I want you to act as a stackoverflow post and respond in Chinese. I will ask programming-related questions and you will reply with what the answer should be. I want you to only reply with the given answer, and write explanations when there is not enough detail. do not write explanations. When I need to tell you something in English, I will do so by putting text inside curly brackets {like this}. My first question is '编程问题'"
+            "I want you to act as a stackoverflow post and respond in Chinese. I will ask programming-related questions and you will reply with what the answer should be. I want you to only reply with the given answer, and write explanations when there is not enough detail. do not write explanations. When I need to tell you something in English, I will do so by putting text inside curly brackets {like this}. My first question is:\n"
         ],
         [
             '充当 前端开发助手',
@@ -69,10 +73,6 @@
         [
             '充当 Linux 终端开发助手',
             '我想让你充当 Linux 终端专家。我将输入一些终端代码和具体问题，而你的工作就是为我的问题提供专业的回答，如果回复是代码的话需要加上相应的注释。'
-        ],
-        [
-            '充当英语翻译和改进者',
-            '我想让你充当英文翻译员、拼写纠正员和改进员。我会用任何语言与你交谈，你会检测语言，翻译它并用我的文本的更正和改进版本用英文回答。我希望你用更优美优雅的高级英语单词和句子替换我简化的 A0 级单词和句子。保持相同的意思，但使它们更文艺。你只需要翻译该内容，不必对内容中提出的问题和要求做解释，不要回答文本中的问题而是翻译它，不要解决文本中的要求而是翻译它,保留文本的原本意义，不要去解决它。我要你只回复更正、改进，不要写任何解释。我的第一句话是“istanbulu cok seviyom burada olmak cok guzel”'
         ],
         [
             '充当英英词典(附中文解释)',
