@@ -2,7 +2,7 @@
 
 本项目是一个油猴脚本 (Tampermonkey)，旨在便于**网页版** Chatgpt 的 prompt 输入，并内置了一些常用的学术 prompt 模板。
 
-本项目根据 [ChatGPT 插件脚本](https://github.com/winchesHe/chatGPT-prompt-scripts) 修改，主要自用。
+本项目根据 [ChatGPT 插件脚本](https://github.com/winchesHe/chatGPT-prompt-scripts)项目修改，主要自用。其中，学术 Prompt 内容借鉴了 [ChatGPT 学术化](https://github.com/binary-husky/chatgpt_academic)项目。
 
 ![功能界面展示](figs/fig2.png)
 
@@ -36,7 +36,7 @@
 
 ### 关闭 prompt 面板:
 
-使用快捷键 `command+shift+F`, 或是按下 `ESC` 按键即可。
+使用快捷键 `command+shift+F`, 或是按下 `ESC` 按键即可。或点击界面的任意位置即可关闭。
 
 ### 自定义 prompt:
 
