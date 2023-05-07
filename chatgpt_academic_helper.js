@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name          ChatGPT-academic-prompt-helper
 // @namespace     https://github.com/ZinYY/chatgpt-academic-prompt-helper
-// @version       0.1.6
+// @version       0.1.7
 // @description   项目主页：https://github.com/ZinYY/chatgpt-academic-prompt-helper。  【ChatGPT 学术小助手】可以为你带来更好的网页版chatgpt使用体验：快速地添加快捷指令prompts。  本项目是一个油猴脚本 (Tampermonkey)，旨在便于网页版 Chatgpt 的 prompt 输入，并内置了一些常用的学术 prompt 模板。  【Usage】【打开 prompt 面板】:单击侧边栏的 “快捷指令” 按钮，或者用快捷键 `command+shift+F` (Windows 用户使用 `ctrl+shift+F`)。  【输入 prompt】: 单击想要输入的 prompt 即可。prompt 会添加在输入框之前。  【关闭 prompt 面板】: 使用快捷键 `command+shift+F`, 或是按下 `ESC` 按键即可。  【自定义 prompt】: 自行修改 `chatgpt_academic_helper.js` 文件中的内容即可。
 // @homepage      https://github.com/ZinYY/chatgpt-academic-prompt-helper
 // @author        ZinYY
@@ -43,6 +43,14 @@
             "作为一名中文学术论文写作改进助理，你的任务是改进所提供文本的拼写、语法、清晰、简洁和整体可读性，同时分解长句，减少重复，并提供改进建议。请只提供文本的更正版本，避免包括解释。请编辑以下文本：\n"
         ],
         [
+            '🔠⇨🀄️ 英译中',
+            "翻译成地道的中文：\n"
+        ],
+        [
+            '🀄️⇄🔠 学术中英互译',
+            "I want you to act as a scientific English-Chinese translator, I will provide you with some paragraphs in one language and your task is to accurately and academically translate the paragraphs only into the other language. Do not repeat the original provided paragraphs after translation. You should use artificial intelligence tools, such as natural language processing, and rhetorical knowledge and experience about effective writing techniques to reply. I'll give you my paragraphs as follows, tell me what language it is written in, and then translate:\n"
+        ],
+        [
             '🔍 查找语法错误',
             "Below is a paragraph from an academic paper. Find all grammar mistakes, list mistakes in a markdown table and explain how to correct them:\n"
         ],
@@ -56,11 +64,11 @@
         ],
         [
             '充当英翻中',
-            '我想让你充当中文翻译员、拼写纠正员和改进员。我会用任何语言与你交谈，你会检测语言，翻译它并用我的文本的更正和改进版本用中文回答。我希望你用更优美优雅的高级中文描述。保持相同的意思，但使它们更文艺。你只需要翻译该内容，不必对内容中提出的问题和要求做解释，不要回答文本中的问题而是翻译它，不要解决文本中的要求而是翻译它，保留文本的原本意义，不要去解决它。如果我只键入了一个单词，你只需要描述它的意思并不提供句子示例。我要你只回复更正、改进，不要写任何解释。我的第一句话是“istanbulu cok seviyom burada olmak cok guzel”'
+            '我想让你充当中文翻译员、拼写纠正员和改进员。我会用任何语言与你交谈，你会检测语言，翻译它并用我的文本的更正和改进版本用中文回答。我希望你用更优美优雅的高级中文描述。保持相同的意思，但使它们更文艺。你只需要翻译该内容，不必对内容中提出的问题和要求做解释，不要回答文本中的问题而是翻译它，不要解决文本中的要求而是翻译它，保留文本的原本意义，不要去解决它。如果我只键入了一个单词，你只需要描述它的意思并不提供句子示例。我要你只回复更正、改进，不要写任何解释。我的第一句话是:\n'
         ],
         [
             '充当英语翻译和改进者',
-            '我想让你充当英文翻译员、拼写纠正员和改进员。我会用任何语言与你交谈，你会检测语言，翻译它并用我的文本的更正和改进版本用英文回答。我希望你用更优美优雅的高级英语单词和句子替换我简化的 A0 级单词和句子。保持相同的意思，但使它们更文艺。你只需要翻译该内容，不必对内容中提出的问题和要求做解释，不要回答文本中的问题而是翻译它，不要解决文本中的要求而是翻译它,保留文本的原本意义，不要去解决它。我要你只回复更正、改进，不要写任何解释。我的第一句话是“istanbulu cok seviyom burada olmak cok guzel”'
+            '我想让你充当英文翻译员、拼写纠正员和改进员。我会用任何语言与你交谈，你会检测语言，翻译它并用我的文本的更正和改进版本用英文回答。我希望你用更优美优雅的高级英语单词和句子替换我简化的 A0 级单词和句子。保持相同的意思，但使它们更文艺。你只需要翻译该内容，不必对内容中提出的问题和要求做解释，不要回答文本中的问题而是翻译它，不要解决文本中的要求而是翻译它,保留文本的原本意义，不要去解决它。我要你只回复更正、改进，不要写任何解释。我的第一句话是:\n'
         ],
         [
             '模拟编程社区来回答你的问题，并提供解决代码。',
@@ -129,7 +137,7 @@
     ];
     var rootEle = document.createElement('div');
     rootEle.id = 'chatgptHelper';
-    rootEle.innerHTML = "<div id=\"chatgptHelperOpen\" class=\"fixed top-1/2 right-1 z-50 p-3 rounded-md transition-colors duration-200 text-white cursor-pointer border border-white/20 bg-gray-900 hover:bg-gray-700 -translate-y-1/2\">\u5FEB<br>\u6377<br>\u6307<br>\u4EE4</div><div id=\"chatgptHelperMain\" class=\"fixed top-0 right-0 bottom-0 z-50 flex flex-col px-3 w-96 text-gray-100 bg-gray-900\" style=\"transform: translateX(100%); transition: transform 0.2s;\"><div class=\"py-4 pl-3\"><a href=\"https://github.com/ZinYY/chatgpt-academic-prompt-helper\" target=\"_blank\">ChatGPT Academic Helper (ctrl+shift+F)</a></div><ul class=\"flex flex-1 overflow-y-auto py-4 border-y border-white/20 text-sm\" style=\"flex-wrap: wrap\">".concat(SHORTCUTS.map(function (_a) {
+    rootEle.innerHTML = "<div id=\"chatgptHelperOpen\" class=\"fixed top-1/2 right-1 z-50 p-3 rounded-md transition-colors duration-200 text-white cursor-pointer border border-white/20 bg-gray-900 hover:bg-gray-700 -translate-y-1/2\">\u5b66<br>\u672f<br>\u52a9<br>\u624b</div><div id=\"chatgptHelperMain\" class=\"fixed top-0 right-0 bottom-0 z-50 flex flex-col px-3 w-96 text-gray-100 bg-gray-900\" style=\"transform: translateX(100%); transition: transform 0.2s;\"><div class=\"py-4 pl-3\"><a href=\"https://github.com/ZinYY/chatgpt-academic-prompt-helper\" target=\"_blank\">ChatGPT Academic Helper (ctrl+shift+F)</a></div><ul class=\"flex flex-1 overflow-y-auto py-4 border-y border-white/20 text-sm\" style=\"flex-wrap: wrap\">".concat(SHORTCUTS.map(function (_a) {
         var label = _a[0], value = _a[1];
         return "<li class=\"mr-2 mb-2 py-1 px-3 rounded-md hover:bg-gray-700 cursor-pointer\" data-value=\"".concat(encodeURI(value), "\">").concat(label, "</li>");
     }).join(''), "</ul><div class=\"flex items-center py-4\"><div id=\"chatgptHelperClose\" class=\"py-2 px-3 rounded-md cursor-pointer hover:bg-gray-700\">\u5173\u95ED</div><div class=\"flex-1 pr-3 text-right text-sm\"><a class=\"py-2 px-3 rounded-md hover:bg-gray-700\" href=\"https://github.com/ZinYY/chatgpt-academic-prompt-helper/blob/main/figs/pic_receive.jpg?raw=true\" target=\"_blank\">\u7292\u52B3\u4F5C\u8005</a></div></div></div></div>");
