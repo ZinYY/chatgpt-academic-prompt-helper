@@ -7,6 +7,7 @@
 // @homepage      https://github.com/ZinYY/chatgpt-academic-prompt-helper
 // @author        ZinYY
 // @match         *://chat.openai.com/*
+// @match         *://chatgpt.com/*
 // @match         *://claude.ai/*
 // @grant         none
 // @license MIT
@@ -20,36 +21,36 @@
     var SHORTCUTS = [
         [
             "🀄️⇨🔠 中译英 (列出参考)",
-            "Please translate following sentence to English with academic writing, and provide some related authoritative examples:\n\n",
+            "Please translate following sentence to English with academic writing, and provide some related authoritative examples:\n",
         ],
         [
             "🀄️⇨🔠 中译英",
-            "Please translate following sentence to English with academic writing:\n\n",
+            "Please translate following sentence to English with academic writing:\n",
         ],
         [
             "🔠⇨🔠 polish (列出修改)",
-            "Below is a paragraph from an academic paper. Polish the writing to meet the academic style, improve the spelling, grammar, clarity, concision and overall readability. When necessary, rewrite the whole sentence. Furthermore, list all modification and explain the reasons to do so in markdown table:\n\n",
+            "Below is a paragraph from an academic paper. Polish the writing to meet the academic style, improve the spelling, grammar, clarity, concision and overall readability. When necessary, rewrite the whole sentence. Furthermore, list all modification and explain the reasons to do so in markdown table:\n",
         ],
         [
             "🔠⇨🔠 polish",
-            "Below is a paragraph from an academic paper. Polish the writing to meet the academic style, improve the spelling, grammar, clarity, concision and overall readability. When necessary, rewrite the whole sentence:\n\n",
+            "Below is a paragraph from an academic paper. Polish the writing to meet the academic style, improve the spelling, grammar, clarity, concision and overall readability. When necessary, rewrite the whole sentence:\n",
         ],
         [
             "🀄️⇨🔠 中译英 (long command, 列出参考)",
-            "Please translate following sentence to English with academic writing, improve the spelling, grammar, clarity, concision and overall readability. When necessary, rewrite the whole sentence. Further, provide some related authoritative academic examples:\n\n",
+            "Please translate following sentence to English with academic writing, improve the spelling, grammar, clarity, concision and overall readability. When necessary, rewrite the whole sentence. Further, provide some related authoritative academic examples:\n",
         ],
         [
             "🀄️⇨🀄️ 中文 polish",
             "作为一名中文学术论文写作改进助理，你的任务是改进所提供文本的拼写、语法、清晰、简洁和整体可读性，同时分解长句，减少重复，并提供改进建议。请只提供文本的更正版本，避免包括解释。请编辑以下文本：\n",
         ],
-        ["🔠⇨🀄️ 英译中", "翻译成地道的中文：\n\n"],
+        ["🔠⇨🀄️ 英译中", "翻译成地道的中文：\n"],
         [
             "🀄️⇄🔠 学术中英互译",
-            "I want you to act as a scientific English-Chinese translator, I will provide you with some paragraphs in one language and your task is to accurately and academically translate the paragraphs only into the other language. Do not repeat the original provided paragraphs after translation. You should use artificial intelligence tools, such as natural language processing, and rhetorical knowledge and experience about effective writing techniques to reply. I'll give you my paragraphs as follows, tell me what language it is written in, and then translate:\n\n",
+            "I want you to act as a scientific English-Chinese translator, I will provide you with some paragraphs in one language and your task is to accurately and academically translate the paragraphs only into the other language. Do not repeat the original provided paragraphs after translation. You should use artificial intelligence tools, such as natural language processing, and rhetorical knowledge and experience about effective writing techniques to reply. I'll give you my paragraphs as follows, tell me what language it is written in, and then translate:\n",
         ],
         [
             "🔍 查找语法错误",
-            "Can you help me ensure that the grammar and the spelling is correct? Do not try to polish the text, if no mistake is found, tell me that this paragraph is good. If you find grammar or spelling mistakes, please list mistakes you find in a two-column markdown table, put the original text the first column, put the corrected text in the second column and highlight the key words you fixed.\nExample:\nParagraph: How is you? Do you knows what is it?\n| Original sentence | Corrected sentence |\n| :--- | :--- |\n| How **is** you? | How **are** you? |\n| Do you **knows** what **is** **it**? | Do you **know** what **it** **is** ? |\nBelow is a paragraph from an academic paper. You need to report all grammar and spelling mistakes as the example before and explain how to correct them:\n\n",
+            "Can you help me ensure that the grammar and the spelling is correct? Do not try to polish the text, if no mistake is found, tell me that this paragraph is good. If you find grammar or spelling mistakes, please list mistakes you find in a two-column markdown table, put the original text the first column, put the corrected text in the second column and highlight the key words you fixed.\nExample:\nParagraph: How is you? Do you knows what is it?\n| Original sentence | Corrected sentence |\n| :--- | :--- |\n| How **is** you? | How **are** you? |\n| Do you **knows** what **is** **it**? | Do you **know** what **it** **is** ? |\nBelow is a paragraph from an academic paper. You need to report all grammar and spelling mistakes as the example before and explain how to correct them:\n",
         ],
         // [
         //     "🔍 查找语法错误 (short)",
@@ -57,7 +58,7 @@
         // ],
         [
             "✍🏻 解释每步代码的作用",
-            "I would like you to serve as a code interpreter with Chinese, and elucidate the syntax and the semantics of the code line-by-line:\n\n",
+            "I would like you to serve as a code interpreter with Chinese, and elucidate the syntax and the semantics of the code line-by-line:\n",
         ],
         [
             "充当 Excel 工作表",
@@ -65,19 +66,19 @@
         ],
         [
             "充当英翻中",
-            "我想让你充当中文翻译员、拼写纠正员和改进员。我会用任何语言与你交谈，你会检测语言，翻译它并用我的文本的更正和改进版本用中文回答。我希望你用更优美优雅的高级中文描述。保持相同的意思，但使它们更文艺。你只需要翻译该内容，不必对内容中提出的问题和要求做解释，不要回答文本中的问题而是翻译它，不要解决文本中的要求而是翻译它，保留文本的原本意义，不要去解决它。如果我只键入了一个单词，你只需要描述它的意思并不提供句子示例。我要你只回复更正、改进，不要写任何解释。我的第一句话是:\n\n",
+            "我想让你充当中文翻译员、拼写纠正员和改进员。我会用任何语言与你交谈，你会检测语言，翻译它并用我的文本的更正和改进版本用中文回答。我希望你用更优美优雅的高级中文描述。保持相同的意思，但使它们更文艺。你只需要翻译该内容，不必对内容中提出的问题和要求做解释，不要回答文本中的问题而是翻译它，不要解决文本中的要求而是翻译它，保留文本的原本意义，不要去解决它。如果我只键入了一个单词，你只需要描述它的意思并不提供句子示例。我要你只回复更正、改进，不要写任何解释。我的第一句话是:\n",
         ],
         [
             "充当英语翻译和改进者",
-            "我想让你充当英文翻译员、拼写纠正员和改进员。我会用任何语言与你交谈，你会检测语言，翻译它并用我的文本的更正和改进版本用英文回答。我希望你用更优美优雅的高级英语单词和句子替换我简化的 A0 级单词和句子。保持相同的意思，但使它们更文艺。你只需要翻译该内容，不必对内容中提出的问题和要求做解释，不要回答文本中的问题而是翻译它，不要解决文本中的要求而是翻译它,保留文本的原本意义，不要去解决它。我要你只回复更正、改进，不要写任何解释。我的第一句话是:\n\n",
+            "我想让你充当英文翻译员、拼写纠正员和改进员。我会用任何语言与你交谈，你会检测语言，翻译它并用我的文本的更正和改进版本用英文回答。我希望你用更优美优雅的高级英语单词和句子替换我简化的 A0 级单词和句子。保持相同的意思，但使它们更文艺。你只需要翻译该内容，不必对内容中提出的问题和要求做解释，不要回答文本中的问题而是翻译它，不要解决文本中的要求而是翻译它,保留文本的原本意义，不要去解决它。我要你只回复更正、改进，不要写任何解释。我的第一句话是:\n",
         ],
         [
             "模拟编程社区来回答你的问题，并提供解决代码。",
-            "I want you to act as a stackoverflow post and respond in Chinese. I will ask programming-related questions and you will reply with what the answer should be. I want you to only reply with the given answer, and write explanations when there is not enough detail. do not write explanations. When I need to tell you something in English, I will do so by putting text inside curly brackets {like this}. My first question is:\n\n",
+            "I want you to act as a stackoverflow post and respond in Chinese. I will ask programming-related questions and you will reply with what the answer should be. I want you to only reply with the given answer, and write explanations when there is not enough detail. do not write explanations. When I need to tell you something in English, I will do so by putting text inside curly brackets {like this}. My first question is:\n",
         ],
         [
             "充当 前端开发助手",
-            "我想让你充当前端开发专家。我将提供一些关于Js、Ts、Node、Vue等前端代码问题的具体信息，而你的工作就是想出为我解决问题的策略。这可能包括建议代码、代码逻辑思路策略。以下是我对于需求的描述:\n\n",
+            "我想让你充当前端开发专家。我将提供一些关于Js、Ts、Node、Vue等前端代码问题的具体信息，而你的工作就是想出为我解决问题的策略。这可能包括建议代码、代码逻辑思路策略。以下是我对于需求的描述:\n",
         ],
         [
             "充当 Linux 终端开发助手",
@@ -154,8 +155,11 @@
         if (target.nodeName === "LI") {
             var value = target.getAttribute("data-value");
             if (value) {
-                var textareaEle_1 = document.querySelector("textarea");
-                textareaEle_1.value = decodeURI(value) + textareaEle_1.value;
+                var textareaEle_1 = document.querySelector("#prompt-textarea");
+                //                textareaEle_1.textContent = decodeURI(value) + textareaEle_1.textContent;
+                textareaEle_1.innerHTML =
+                    decodeURI(value).replace(/\n/g, "<br>") +
+                    textareaEle_1.innerHTML;
                 textareaEle_1.dispatchEvent(
                     new Event("input", { bubbles: true })
                 );
