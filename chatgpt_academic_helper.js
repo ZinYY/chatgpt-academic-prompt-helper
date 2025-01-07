@@ -155,17 +155,43 @@
         if (target.nodeName === "LI") {
             var value = target.getAttribute("data-value");
             if (value) {
-                var textareaEle_1 = document.querySelector("#prompt-textarea");
-                //                textareaEle_1.textContent = decodeURI(value) + textareaEle_1.textContent;
-                textareaEle_1.innerHTML =
-                    decodeURI(value).replace(/\n/g, "<br>") +
-                    textareaEle_1.innerHTML;
-                textareaEle_1.dispatchEvent(
-                    new Event("input", { bubbles: true })
-                );
-                setTimeout(function () {
-                    textareaEle_1.focus();
-                }, 1e3);
+                var textareaEle_1;
+                if (window.location.hostname === "claude.ai") {
+                    // Claude.ai 的输入框
+                    textareaEle_1 = document.querySelector(
+                        "div[contenteditable='true']"
+                    );
+                } else {
+                    // ChatGPT 的输入框
+                    textareaEle_1 = document.querySelector("#prompt-textarea");
+                }
+
+                if (textareaEle_1) {
+                    if (window.location.hostname === "claude.ai") {
+                        // Claude.ai 使用 innerHTML
+                        textareaEle_1.innerHTML =
+                            decodeURI(value) + textareaEle_1.innerHTML;
+                        // 触发输入事件
+                        textareaEle_1.dispatchEvent(
+                            new InputEvent("input", {
+                                bubbles: true,
+                                cancelable: true,
+                            })
+                        );
+                    } else {
+                        // ChatGPT 使用 innerHTML 并处理换行
+                        textareaEle_1.innerHTML =
+                            decodeURI(value).replace(/\n/g, "<br>") +
+                            textareaEle_1.innerHTML;
+                        textareaEle_1.dispatchEvent(
+                            new Event("input", { bubbles: true })
+                        );
+                    }
+
+                    setTimeout(function () {
+                        textareaEle_1.focus();
+                    }, 1e3);
+                }
             }
         }
         chatgptHelperMain.style.transform = "translateX(100%)";
